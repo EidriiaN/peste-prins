@@ -38,7 +38,7 @@ export default function Home() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="#" className="nav-link">
-                    Meteo
+                    Meteo123123
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
