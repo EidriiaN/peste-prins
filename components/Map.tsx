@@ -8,13 +8,15 @@ export default function Map() {
   const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<L.Map | null>(null);
   const [userMarker, setUserMarker] = useState<L.Marker | null>(null);
+  const mapInitialized = useRef(false);
 
   // Function to initialize map with location
   const initializeMap = (latitude: number, longitude: number, zoom: number) => {
-    if (!mapRef.current) return;
+    if (!mapRef.current || mapInitialized.current) return;
 
     const mapInstance = L.map(mapRef.current).setView([latitude, longitude], zoom);
     setMap(mapInstance);
+    mapInitialized.current = true;
 
     // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -60,7 +62,7 @@ export default function Map() {
         (error) => {
           console.error("Error getting location:", error);
           // If we can't get location and map isn't initialized yet, center on Romania
-          if (!map) {
+          if (!mapInitialized.current) {
             initializeMap(45.9432, 24.9668, 7);
           }
         }
@@ -68,14 +70,14 @@ export default function Map() {
     } else {
       alert("Geolocation is not supported by your browser");
       // If geolocation is not supported, center on Romania
-      if (!map) {
+      if (!mapInitialized.current) {
         initializeMap(45.9432, 24.9668, 7);
       }
     }
   };
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current || mapInitialized.current) return;
 
     // Try to get user location first
     if ("geolocation" in navigator) {
@@ -99,20 +101,25 @@ export default function Map() {
         },
         () => {
           // If we can't get location, center on Romania
-          initializeMap(45.9432, 24.9668, 7);
+          if (!mapInitialized.current) {
+            initializeMap(45.9432, 24.9668, 7);
+          }
         }
       );
     } else {
       // If geolocation is not supported, center on Romania
-      initializeMap(45.9432, 24.9668, 7);
+      if (!mapInitialized.current) {
+        initializeMap(45.9432, 24.9668, 7);
+      }
     }
 
     return () => {
       if (map) {
         map.remove();
+        mapInitialized.current = false;
       }
     };
-  }, []);
+  }, [map]);
 
   return (
     <div className="w-full h-full relative">

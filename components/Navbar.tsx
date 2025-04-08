@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
 
 export default function Navbar() {
@@ -8,10 +9,12 @@ export default function Navbar() {
           {/* Logo & App Name */}
           <div className="flex items-center space-x-4 group">
             <div className="logo-container p-2">
-              <img
+              <Image
                 className="rounded-lg border-2 border-[#f8f8f2]/20 hover:border-[#2c3e50] transition-all duration-300 hover:scale-105 w-24 h-16 object-cover"
                 src="/peste-prins-logo.png"
                 alt="Peste Prins Logo"
+                width={96}
+                height={64}
               />
             </div>
             <div className="flex flex-col">

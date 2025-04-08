@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-[#4a7c59] text-[#f8f8f2] py-12">
@@ -11,24 +13,24 @@ export default function Footer() {
             <h4 className="text-xl font-bold mb-4">Link-uri Rapide</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+                <Link href="/" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                   Acasă
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/harti" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+                <Link href="/harti" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                   Hărți
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+                <Link href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                   Meteo
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+                <Link href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                   Jurnal
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -42,15 +44,15 @@ export default function Footer() {
           <div>
             <h4 className="text-xl font-bold mb-4">Urmărește-ne</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+              <Link href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                 Facebook
-              </a>
-              <a href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+              </Link>
+              <Link href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                 Instagram
-              </a>
-              <a href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
+              </Link>
+              <Link href="#" className="text-[#f8f8f2]/80 hover:text-[#2c3e50] transition-colors duration-300">
                 YouTube
-              </a>
+              </Link>
             </div>
           </div>
         </div>
