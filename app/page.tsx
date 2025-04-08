@@ -4,66 +4,6 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
-      <nav className="bg-[#4a7c59] shadow-lg fixed w-full z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo & App Name */}
-            <div className="flex items-center space-x-4 group">
-              <div className="logo-container p-2">
-                <img
-                  className="rounded-lg border-2 border-[#f8f8f2]/20 hover:border-[#2c3e50] transition-all duration-300 hover:scale-105 w-24 h-16 object-cover"
-                  src="/peste-prins-logo.png"
-                  alt="Peste Prins Logo"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h1 className="text-[#f8f8f2] text-2xl font-bold group-hover:text-[#d4af37] transition-colors duration-300">Peste Prins</h1>
-                <span className="text-[#f8f8f2]/80 text-sm">Platforma de pescuit</span>
-              </div>
-            </div>
-
-            {/* Navigation Menu */}
-            <NavigationMenu className="hidden md:block">
-              <NavigationMenuList className="flex space-x-8">
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="/" className="nav-link">
-                    Acasă
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="nav-link">
-                    Hărți
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="nav-link">
-                    Meteoo
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="nav-link">
-                    Jurnal
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="nav-link">
-                    Comunitate
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            {/* Mobile Menu Button */}
-            <button className="md:hidden text-[#f8f8f2] hover:text-[#d4af37] transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Image with Gradient Overlay */}
@@ -163,67 +103,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#4a7c59] text-[#f8f8f2] py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="text-xl font-bold mb-4">Peste Prins</h4>
-              <p className="text-[#f8f8f2]/80">Platforma ta de pescuit în România.</p>
-            </div>
-            <div>
-              <h4 className="text-xl font-bold mb-4">Link-uri Rapide</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                    Acasă
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                    Hărți
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                    Meteo
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                    Jurnal
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-bold mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li className="text-[#f8f8f2]/80">Email: contact@pesteprins.ro</li>
-                <li className="text-[#f8f8f2]/80">Telefon: +40 123 456 789</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-bold mb-4">Urmărește-ne</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                  Facebook
-                </a>
-                <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                  Instagram
-                </a>
-                <a href="#" className="text-[#f8f8f2]/80 hover:text-[#d4af37] transition-colors duration-300">
-                  YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-[#f8f8f2]/20 mt-8 pt-8 text-center">
-            <p>© {new Date().getFullYear()} Peste Prins - Toate drepturile rezervate</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
