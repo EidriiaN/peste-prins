@@ -1,0 +1,42 @@
+name: Build and Deploy to Build Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Required to push to another branch
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # or whatever version your app needs
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Copy output to a separate branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git switch --orphan build
+          git rm -rf .
+
+          cp -r out/* .  # Assuming `out/` is the export dir
+          touch .nojekyll  # Avoid GitHub Pages treating it as Jekyll
+
+          git add .
+          git commit -m "Build output from main branch"
+          git push -f origin build
