@@ -26,9 +26,6 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      - name: Export static files (if using static export)
-        run: npm run export
-
       - name: Copy output to a separate branch
         run: |
           git config user.name "github-actions[bot]"
