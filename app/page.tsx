@@ -12,7 +12,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-6xl font-bold text-[#f8f8f2] mb-6 leading-tight">
               Bine ai venit la

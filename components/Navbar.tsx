@@ -10,7 +10,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-4 group">
             <div className="logo-container p-2">
               <Image
-                className="rounded-lg border-2 border-[#f8f8f2]/20 hover:border-[#2c3e50] transition-all duration-300 hover:scale-105 w-24 h-16 object-cover"
+                className="rounded-lg border-2 border-[#f8f8f2]/20 hover:text-[#d4af37] transition-all duration-300 hover:scale-105 w-24 h-16 object-cover"
                 src="/peste-prins-logo.png"
                 alt="Peste Prins Logo"
                 width={96}
@@ -18,7 +18,7 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-[#f8f8f2] text-2xl font-bold group-hover:text-[#2c3e50] transition-colors duration-300">Peste Prins</h1>
+              <h1 className="text-[#f8f8f2] text-2xl font-bold group-hover:text-[#d4af37] transition-colors duration-300">Peste Prins</h1>
               <span className="text-[#f8f8f2]/80 text-sm">Platforma de pescuit</span>
             </div>
           </div>
