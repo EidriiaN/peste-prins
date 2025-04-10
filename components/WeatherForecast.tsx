@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ForecastData {
   list: {
     dt: number;
@@ -63,11 +65,14 @@ export default function WeatherForecast({ forecast, days }: WeatherForecastProps
       {dailyForecasts.map((day) => (
         <div key={day.dt} className="bg-white rounded-lg shadow-md p-4 text-center">
           <div className="font-semibold text-[#2c3e50] mb-2">{formatDate(day.dt)}</div>
-          <img
-            src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-            alt={day.weather[0].description}
-            className="w-16 h-16 mx-auto"
-          />
+          <div className="relative w-16 h-16 mx-auto">
+            <Image
+              src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+              alt={day.weather[0].description}
+              fill
+              className="object-contain"
+            />
+          </div>
           <div className="text-xl font-bold text-[#2c3e50] my-2">{Math.round(day.main.temp)}°C</div>
           <div className="text-sm text-gray-600 capitalize">{day.weather[0].description}</div>
           <div className="grid grid-cols-2 gap-2 mt-3 text-sm">

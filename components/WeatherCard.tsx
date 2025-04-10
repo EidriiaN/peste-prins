@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface WeatherCardProps {
   weather: {
     main: {
@@ -27,11 +29,14 @@ export default function WeatherCard({ weather }: WeatherCardProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex items-center justify-center">
           <div className="text-center">
-            <img
-              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
-              alt={weather.weather[0].description}
-              className="w-32 h-32 mx-auto"
-            />
+            <div className="relative w-32 h-32 mx-auto">
+              <Image
+                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
+                alt={weather.weather[0].description}
+                fill
+                className="object-contain"
+              />
+            </div>
             <h3 className="text-xl font-semibold text-[#2c3e50] capitalize mt-2">{weather.weather[0].description}</h3>
           </div>
         </div>

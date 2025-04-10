@@ -48,13 +48,23 @@ interface ForecastData {
   };
 }
 
+interface GeocodingLocation {
+  name: string;
+  local_names?: {
+    ro?: string;
+  };
+  country: string;
+  state?: string;
+  lat: number;
+  lon: number;
+}
+
 export default function MeteoPage() {
   const [location, setLocation] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const [currentWeather, setCurrentWeather] = useState<WeatherData | null>(null);
   const [forecast, setForecast] = useState<ForecastData | null>(null);
   const [forecastDays, setForecastDays] = useState(5);
-  const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -63,7 +73,6 @@ export default function MeteoPage() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          setUserLocation({ lat: latitude, lon: longitude });
 
           // First, get the location name using reverse geocoding
           try {
@@ -169,10 +178,10 @@ export default function MeteoPage() {
 
       if (geoData.length > 0) {
         // Filter for Romanian locations and sort by relevance
-        const romanianLocations = geoData.filter((loc: any) => loc.country === "RO");
+        const romanianLocations = geoData.filter((loc: GeocodingLocation) => loc.country === "RO");
 
         // Find exact matches in Romanian and English names
-        const exactMatch = romanianLocations.find((location: any) => {
+        const exactMatch = romanianLocations.find((location: GeocodingLocation) => {
           const searchLower = searchLocation.toLowerCase();
           const nameMatch = location.name.toLowerCase() === searchLower;
           const localNameMatch = location.local_names?.ro?.toLowerCase() === searchLower;
@@ -180,7 +189,7 @@ export default function MeteoPage() {
         });
 
         // Find matches for major cities (using state data)
-        const majorCityMatch = romanianLocations.find((location: any) => {
+        const majorCityMatch = romanianLocations.find((location: GeocodingLocation) => {
           return (
             location.state &&
             (location.name.toLowerCase().includes(searchLocation.toLowerCase()) ||
