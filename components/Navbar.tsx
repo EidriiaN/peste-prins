@@ -37,7 +37,7 @@ export default function Navbar() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#" className="nav-link">
+                <NavigationMenuLink href="/meteo" className="nav-link">
                   Meteo
                 </NavigationMenuLink>
               </NavigationMenuItem>
